@@ -1,7 +1,7 @@
-function reverseString(str)
+function reverseString()
 {
-    const inputText = document.getElementById("reverseInput").value;
-    const reversed = "";
+    let inputText = document.getElementById("reverseInput").value;
+    let reversed = "";
 
     for (let i = inputText.length - 1; i >= 0; i--)
     {
@@ -13,9 +13,9 @@ function reverseString(str)
 
 function checkPalindrome()
 {
-    const inputText = document.getElementById("palindromeInput").value;
-    const simple = inputText.toLowerCase().replace(/[^a-z0-9]/g, "");
-    const reversed = "";
+    let inputText = document.getElementById("palindromeInput").value;
+    let simple = inputText.toLowerCase().replace(/[^a-z0-9]/g, "");
+    let reversed = "";
 
     for (let i = simple.length - 1; i >= 0; i--)
     {
@@ -35,14 +35,14 @@ function checkPalindrome()
 
 function calculateTotal()
 {
-    const subtotal = document.getElementById("subtotal").value;
-    const tipPercent = document.getElementById("tipPercentage").value;
+    let subtotal = document.getElementById("subtotal").value;
+    let tipPercent = document.getElementById("tipPercentage").value;
 
     subtotal = parseFloat(subtotal);
     tipPercent = parseFloat(tipPercent);
 
-    const tip = subtotal * (tipPercent / 100);
-    const total = subtotal + tip;
+    let tip = subtotal * (tipPercent / 100);
+    let total = subtotal + tip;
 
-    document.getElementById("totalResult").innerHTML = "Total amount (including tip)K $" + total.toFixed(2);
+    document.getElementById("totalResult").innerHTML = "Total amount (including tip): $" + total.toFixed(2);
 }
