@@ -1,6 +1,6 @@
 function reverseString()
 {
-    let inputText = document.getElementById("reverseInput").value;
+    let inputText = document.getElementById("reverseString").value;
     let reversed = "";
 
     for (let i = inputText.length - 1; i >= 0; i--)
