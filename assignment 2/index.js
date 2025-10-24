@@ -8,13 +8,13 @@ function reverseString(str)
         reversed += inputText[i];
     }
 
-    document.getElementById("reverseOutput").innerText = reversed;
+    document.getElementById("reversedResult").innerText = reversed;
 }
 
 function checkPalindrome()
 {
     const inputText = document.getElementById("palindromeInput").value;
-    const simple = val.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const simple = inputText.toLowerCase().replace(/[^a-z0-9]/g, "");
     const reversed = "";
 
     for (let i = simple.length - 1; i >= 0; i--)
@@ -36,7 +36,7 @@ function checkPalindrome()
 function calculateTotal()
 {
     const subtotal = document.getElementById("subtotal").value;
-    const tipPercent = document.getElementById("tipPercent").value;
+    const tipPercent = document.getElementById("tipPercentage").value;
 
     subtotal = parseFloat(subtotal);
     tipPercent = parseFloat(tipPercent);
