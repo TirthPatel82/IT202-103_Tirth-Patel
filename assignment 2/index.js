@@ -44,5 +44,5 @@ function calculateTotal()
     let tip = subtotal * (tipPercent / 100);
     let total = subtotal + tip;
 
-    document.getElementById("totalResult").innerHTML = "Total amount (including tip): $" + total.toFixed(2);
+    document.getElementById("tipResult").innerHTML = "Total amount (including tip): $" + total.toFixed(2);
 }
