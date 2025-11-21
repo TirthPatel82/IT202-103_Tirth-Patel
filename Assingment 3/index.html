@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    <Title>Assignment 3</Title>
+</head>
+
+<body>
+    <h3>Insert Text File Here</h3>
+
+    <input type="file" id="fileInput"><br>
+    <button onclick="evaluateFile()">Process file</button>
+
+    <p id="fileResults"></p>
+    <br>
+
+    <h3>BMI Calculator</h3>
+    <label>Weight (in LBs):</label><br>
+    <input type="number" id="weight"><br>
+    <label>Height (in FT):</label><br>
+    <input type="number" id="height"><br>
+    <label>Height (in IN):</label><br>
+    <input type="number" id="inches"><br>
+
+    <button onclick="BMICalculate()">Calculate</button>
+
+    <p id="BMIResult"></p>
+
+    <script>
+        function BMICalculate()
+        {
+            const weight = parseFloat(document.getElementById("weight").value);
+            const heightFT = parseFloat(document.getElementById("height").value);
+            const heightIN = parseFloat(document.getElementById("inches").value);
+
+            const totalHeight = heightFT * 12 + heightIN;
+            const BMI = (weight / (totalHeight * totalHeight)) * 703;
+
+            document.getElementById("BMIResult").innerText = "BMI: " + BMI.toFixed(2);
+        }
+
+        function evaluateFile() 
+        {
+            const file = document.getElementById("fileInput").files[0];
+
+            const reader = new FileReader();
+            reader.onload = async function () 
+            {
+                const text = reader.result;
+
+                // Call backend API
+                const response = await fetch("http://localhost:3000/count", 
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text })
+                });
+
+                const data = await response.json();
+
+                document.getElementById("fileResults").innerText = `Vowels: ${data.vowels}, Consonants: ${data.consonants}`;
+            };
+
+        reader.readAsText(file);
+        }
+    </script>
+</body>
